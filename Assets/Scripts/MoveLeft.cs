@@ -4,7 +4,16 @@ public class MoveLeft : MonoBehaviour
 {
     public float speed = 10f;
 
+    PlayerController player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake()
+    {
+        GameObject PlayerGo = GameObject.Find("Player");
+        player = PlayerGo.GetComponent<PlayerController>();
+    }
+
     void Start()
     {
 
@@ -13,9 +22,6 @@ public class MoveLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject PlayerGo = GameObject.Find("Player");
-        PlayerController player = PlayerGo.GetComponent<PlayerController>();
-
         if (player.isGameOver)
         {
             return;
